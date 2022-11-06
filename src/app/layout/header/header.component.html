@@ -1,0 +1,55 @@
+<nav class="container">
+  <div class="menu-right">
+    <!-- Brand -->
+    <a class="icon-navbar" href="#">
+      <img
+        src="/assets/logotipo.png"
+        height="50"
+        width="120"
+        alt=""
+        loading="lazy"
+        style="margin-top: 2px;"
+      />
+    </a>
+
+    <!-- Search form -->
+    <form class="form-group">
+      <input
+        pInputText
+        autocomplete="off"
+        type="search"
+        class="input-form-control"
+        placeholder="Search"
+        style="min-width: 125px;"
+      />
+      <button class="button-search"
+        ><i class="pi pi-search"></i
+      ></button>
+    </form>
+  </div>
+  <div class="hamburger">
+    <div class="notification-message" *ngIf="user">
+      <i class="pi pi-comments p-text-secondary icon-message" value="{{countNotification}}" pBadge style="font-size: 2rem" severity="{{changeNotification()}}"></i>
+    </div>
+    <p-sidebar styleClass="p-sidebar-sm" [(visible)]="display" position="right" [baseZIndex]="10000">
+      <ul class="list-links">
+        <li>
+          <p-avatar image="assets/showcase/images/demo/avatar/onyamalimba.png" styleClass="mr-2" shape="circle"></p-avatar>
+          <p *ngIf="user">Hello {{user.name}}!
+            <a href="javascript:void(0)" (click)="logout()">Logout</a>
+          </p>
+        </li>
+        <li>
+          <a routerLink="/home" routerLinkActive="active" class="linkHome">Home</a>
+        </li>
+        <li>
+          <a routerLink="/login" routerLinkActive="active" class="linkLogin">Login</a>
+        </li>
+        <li>
+          <a routerLink="/dashboard" routerLinkActive="active" class="linkDashboard">Dashboard</a>
+        </li>
+      </ul>
+    </p-sidebar>
+    <button pButton type="button" class="button-menu mr-2" (click)="display = true" icon="pi pi-align-right"></button>
+  </div>
+</nav>

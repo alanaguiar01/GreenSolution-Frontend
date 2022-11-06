@@ -1,0 +1,42 @@
+<section class="container">
+  <img class="logo" src="/assets/logotipo.png">
+  <form class="formLogin" (submit)="login()" [formGroup]="formLogin">
+    <div class="spaceEmail">
+      <span class="p-input-icon-right">
+        <i class="pi pi-envelope"></i>
+        <input class="iEmail" type="text" pInputText placeholder="Email" formControlName="email"/>
+      </span>
+      <div class="validator" *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)">
+        <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+        <span *ngIf="f['email'].errors?.['email']">Enter a valid email</span>
+      </div>
+    </div>
+    <div class="spacePassword">
+      <p-password class="iPassword" formControlName="password" placeholder="Password" [toggleMask]="true"></p-password>
+    <div class="validator" *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)">
+      <span *ngIf="f['password'].errors?.['required']">Password is required</span>
+      <span *ngIf="f['password'].errors?.['minlength']">min 8 character in password</span>
+    </div>
+    </div>
+      <a routerLink="/forgetPassaword" class="buttonForgot">
+        <p class="textForgot">I forgot Password?</p>
+      </a>
+      <button class="button-login" type="submit" [disabled]="formLogin.invalid">LOGIN</button>
+  </form>
+  <div class="division">
+    <hr/>
+    <p>OR</p>
+    <hr/>
+  </div>
+  <div class="loginNetwork">
+    <a><img src="/assets/iconGoogle.png"/></a>
+    <a><img src="/assets/iconGithub.png"/></a>
+  </div>
+  <div class="spaceRegister">
+    <p class="text-sm">
+      Don't have an account?
+      <a routerLink="/signUp" class="font-bold text-blue-500">Sign up</a>
+    </p>
+  </div>
+</section>
+

@@ -1,0 +1,72 @@
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 85vh;
+}
+
+.formLogin{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.spaceEmail, .spacePassword{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.validator{
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+.button-login{
+  width: 256px;
+  height: 50px;
+  background: linear-gradient(90.94deg, #04C09E 0%, #478B7F 100%);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 4px;
+}
+.buttonForgot{
+  width: 256px;
+}
+.textForgot{
+  text-align: end;
+}
+
+.division{
+  display: flex;
+  align-items: center;
+}
+.division hr{
+  width: 140px;
+  height: 1px;
+}
+.division p{
+  font-size: 18px;
+}
+.loginNetwork{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.spaceRegister{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+.spaceRegister p{
+  margin-right: 5px;
+}
+
+.logo{
+    margin: 0 auto;
+    width: 75%;
+}
