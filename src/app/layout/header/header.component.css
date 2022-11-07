@@ -18,6 +18,7 @@
 }
 .button-search{
   height: 44px;
+  padding: 8px;
 }
 .hamburger{
   display: flex;
@@ -69,8 +70,17 @@
   text-decoration: none;
   font-family: 'Poppins';
   font-size: x-large;
+  font-weight: bold;
+  color: white;
 }
 
 .list-links li p{
   font-family: 'Poppins';
+  color: white;
+  font-weight: 600;
+}
+.text-name-user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

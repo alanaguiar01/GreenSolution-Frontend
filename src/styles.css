@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "Lato", sans-serif;}
 .p-sidebar {
-  background:  #EAF2EF;
+  background-color: #004346;
 }
 .p-avatar.p-avatar-circle {
   width: 150px;
