@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private readonly authService: AuthService,
     private readonly router: Router,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly messageService: MessageService
   ) {}
 
   /**
@@ -33,10 +35,16 @@ export class LoginComponent implements OnInit {
     if (this.formLogin.invalid) {
       return;
     }
-    this.authService.login(this.formLogin.value).subscribe((data: any) => {
+    this.authService.login(this.formLogin.value).subscribe((data) => {
       this.authService.saveToken(data.access_token);
-      this.userService.me().subscribe((user: any) => {
+      this.userService.me().subscribe((user) => {
         this.authService.saveUser(user);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: `${user.name} está logado com sucesso`,
+        });
+
         this.router.navigate(['/dashboard']);
       });
     });

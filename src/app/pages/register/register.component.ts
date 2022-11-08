@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,23 +10,40 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  formLogin!: FormGroup;
+  formRegister!: FormGroup;
 
-  constructor(private readonly formBuilder: FormBuilder) {}
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly authService: AuthService,
+    private readonly router: Router,
+    private readonly messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
   }
 
-  register(): void {}
+  register(): void {
+    if (this.formRegister.invalid) {
+      return;
+    }
+    this.authService.register(this.formRegister.value).subscribe((data) => {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: `${data.name} foi registrado com sucesso`,
+      });
+      this.router.navigate(['/login']);
+    });
+  }
 
   get f() {
-    return this.formLogin.controls;
+    return this.formRegister.controls;
   }
 
   private initForm(): void {
-    this.formLogin = this.formBuilder.group({
-      name: [null, Validators.required, Validators.name],
+    this.formRegister = this.formBuilder.group({
+      name: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]],
     });

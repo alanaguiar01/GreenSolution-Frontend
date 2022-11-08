@@ -12,11 +12,11 @@
       </div>
     </div>
     <div class="spacePassword">
-      <p-password class="iPassword" formControlName="password" placeholder="Password" [toggleMask]="true"></p-password>
-    <div class="validator" *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)">
-      <span *ngIf="f['password'].errors?.['required']">Password is required</span>
-      <span *ngIf="f['password'].errors?.['minlength']">min 8 character in password</span>
-    </div>
+      <p-password styleClass="p-password p-component p-inputwrapper p-input-icon-right" class="iPassword" formControlName="password" placeholder="Password" [toggleMask]="true"></p-password>
+      <div class="validator" *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)">
+        <span *ngIf="f['password'].errors?.['required']">Password is required</span>
+        <span *ngIf="f['password'].errors?.['minlength']">min 8 character in password</span>
+      </div>
     </div>
       <a routerLink="/forget-password" class="buttonForgot">
         <p class="textForgot">I forgot Password?</p>

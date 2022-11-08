@@ -7,10 +7,14 @@ import {
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { MessageService } from 'primeng/api';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly messageService: MessageService
+  ) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -22,7 +26,11 @@ export class ErrorInterceptor implements HttpInterceptor {
           this.authService.logout();
         }
         const message = err.error.message || err.message || err.statusText;
-        alert(message);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: message,
+        });
         return throwError(() => err);
       })
     );

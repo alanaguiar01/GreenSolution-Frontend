@@ -24,6 +24,8 @@ import { AvatarModule } from 'primeng/avatar';
 import { RegisterComponent } from './pages/register/register.component';
 import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 import { CreateNewPasswordComponent } from './pages/create-new-password/create-new-password.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { CreateNewPasswordComponent } from './pages/create-new-password/create-n
     SpeedDialModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastModule,
     MatSliderModule,
     FormsModule,
     PasswordModule,
@@ -55,6 +58,7 @@ import { CreateNewPasswordComponent } from './pages/create-new-password/create-n
     ReactiveFormsModule,
   ],
   providers: [
+    MessageService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],

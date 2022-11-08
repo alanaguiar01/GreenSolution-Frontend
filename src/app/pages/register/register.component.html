@@ -1,6 +1,6 @@
 <section class="container">
   <img class="logo" src="/assets/logotipo.png">
-  <form class="form-login" (submit)="register()" [formGroup]="formLogin">
+  <form class="form-login" (submit)="register()" [formGroup]="formRegister">
     <div class="spaceName">
       <span class="p-input-icon-right">
         <i class="pi pi-user"></i>
@@ -13,7 +13,7 @@
     <div class="spaceEmail">
       <span class="p-input-icon-right">
         <i class="pi pi-envelope"></i>
-        <input class="iEmail" type="text" pInputText placeholder="Email" formControlName="email"/>
+        <input class="iEmail" type="email" pInputText placeholder="Email" formControlName="email"/>
       </span>
       <div class="validator" *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)">
         <span *ngIf="f['email'].errors?.['required']">Email is required</span>
@@ -23,14 +23,14 @@
     <div class="spacePassword">
       <span class="p-input-icon-right">
         <i class="pi pi-lock"></i>
-        <input type="password" pPassword placeholder="Password" />
+        <input type="password" pPassword placeholder="Password" formControlName="password"/>
       </span>
       <div class="validator" *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)">
         <span *ngIf="f['password'].errors?.['required']">Password is required</span>
         <span *ngIf="f['password'].errors?.['minlength']">min 8 character in password</span>
       </div>
     </div>
-    <button class="button-login" type="submit" [disabled]="formLogin.invalid">REGISTER</button>
+    <button class="button-login" type="submit" [disabled]="formRegister.invalid">REGISTER</button>
   </form>
   <div class="division">
     <hr/>

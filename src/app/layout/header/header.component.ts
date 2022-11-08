@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorage } from 'angular-web-storage';
+import { User } from 'src/app/models/user.model';
 // import { MenuItem } from 'primeng/api';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   display = false;
   backgroundNotification = 'danger';
   showNotification = false;
-  @LocalStorage(environment.session.user) user: any;
+  @LocalStorage(environment.session.user) user!: User;
 
   constructor(private readonly authService: AuthService) {}
 
