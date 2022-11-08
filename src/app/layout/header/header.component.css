@@ -1,5 +1,6 @@
 .container{
   display: flex;
+  justify-content: space-between;
   background-color: #004346;
   height: 65px;
   width: 100%;
@@ -11,7 +12,6 @@
 .menu-right{
   display: flex;
   align-items: center;
-  width:50%;
 }
 .form-group{
   display: flex;
@@ -24,7 +24,6 @@
   display: flex;
   align-items: center;
   justify-content: end;
-  width: 50%;
   position: relative;
 }
 .button-menu{
@@ -44,6 +43,7 @@
 .input-form-control{
   border: none;
   border-radius: 10px 0 0 10px;
+  width: 150px;
 }
 
 .button-search{

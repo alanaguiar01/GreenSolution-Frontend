@@ -5,6 +5,10 @@ body { margin: 0; font-family: "Lato", sans-serif;}
 .p-sidebar {
   background-color: #004346;
 }
+.p-inputtext:enabled:focus {
+  box-shadow: none;
+  border: none;
+}
 .p-avatar.p-avatar-circle {
   width: 150px;
   height: 150px;
