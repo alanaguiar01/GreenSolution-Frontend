@@ -22,6 +22,8 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { SidebarModule } from 'primeng/sidebar';
 import { AvatarModule } from 'primeng/avatar';
 import { RegisterComponent } from './pages/register/register.component';
+import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
+import { CreateNewPasswordComponent } from './pages/create-new-password/create-new-password.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { RegisterComponent } from './pages/register/register.component';
     LoginComponent,
     PageNotFoundComponent,
     RegisterComponent,
+    ForgetPasswordComponent,
+    CreateNewPasswordComponent,
   ],
   imports: [
     BrowserModule,
