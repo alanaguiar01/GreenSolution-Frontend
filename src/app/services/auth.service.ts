@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from 'angular-web-storage';
 import { environment } from 'src/environments/environment';
 import { ILogin } from '../interfaces/login.interface';
+import { sendEmailforgotPassword } from '../models/send-email-forgot-password.model';
 import { LoginModel } from '../models/login.model';
 import { RegisterModel } from '../models/register.model';
 import { User } from '../models/user.model';
+import { forgotPassword } from '../models/forgot-password.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +22,20 @@ export class AuthService {
   register(data: RegisterModel) {
     return this.httpClient.post<User>(
       environment.endpoint.concat('/auth/signup'),
+      data
+    );
+  }
+
+  forgotPassword(data: forgotPassword) {
+    return this.httpClient.post(
+      environment.endpoint.concat('/forgotPassword'),
+      data
+    );
+  }
+
+  sendEmailforgotPassword(data: sendEmailforgotPassword) {
+    return this.httpClient.post<User>(
+      environment.endpoint.concat('/sendEmailForgotPassword'),
       data
     );
   }

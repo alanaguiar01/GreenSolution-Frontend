@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
           summary: 'Success',
           detail: `${user.name} está logado com sucesso`,
         });
-
         this.router.navigate(['/dashboard']);
       });
     });

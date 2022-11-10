@@ -37,7 +37,7 @@ const routes: Routes = [
     component: ForgetPasswordComponent,
   },
   {
-    path: 'create-new-password',
+    path: 'create-new-password/:token',
     component: CreateNewPasswordComponent,
   },
   {
